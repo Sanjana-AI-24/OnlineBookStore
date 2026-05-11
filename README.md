@@ -41,41 +41,115 @@ The project is divided into three distinct layers to ensure scalability and main
 
 ---
 
+Use this corrected and properly separated version for the **Project Structure** section in your README file.
+
 ## 📂 Project Structure
+
 ```text
 OnlineBookStore/
-├── src/main/java/
-│   ├── com/bookstore/dao/        # Data Access Objects (BookDAO, UserDAO, OrderDAO)
-│   ├── com/bookstore/model/      # POJOs / Entities (Book, User, Order, CartItem)
-│   ├── com/bookstore/servlet/    # Controllers (Cart, Login, Order, Admin Servlets)
-│   └── com/bookstore/util/       # Database Connection Utilities
-├── src/main/webapp/
-│   ├── css/ & js/                # Static UI Assets (style.css, script.js)
-│   ├── WEB-INF/                  # web.xml Deployment Descriptor
-│   └── *.jsp                     # Dynamic View Pages (index, books, cart, etc.)
-├── bookstore_db.sql              # Database Schema & Sample Data
-└── README.md                     # Project Documentation
+│
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/bookstore/
+│       │       ├── dao/             
+│       │       │   ├── BookDAO.java
+│       │       │   ├── UserDAO.java
+│       │       │   └── OrderDAO.java
+│       │       │
+│       │       ├── model/           
+│       │       │   ├── Book.java
+│       │       │   ├── User.java
+│       │       │   ├── Order.java
+│       │       │   └── CartItem.java
+│       │       │
+│       │       ├── servlet/         
+│       │       │   ├── LoginServlet.java
+│       │       │   ├── RegisterServlet.java
+│       │       │   ├── CartServlet.java
+│       │       │   ├── OrderServlet.java
+│       │       │   └── AdminServlet.java
+│       │       │
+│       │       └── util/            
+│       │           └── DBConnection.java
+│       │
+│       └── webapp/
+│           ├── css/
+│           │   └── style.css
+│           │
+│           ├── js/
+│           │   └── script.js
+│           │
+│           ├── WEB-INF/
+│           │   └── web.xml
+│           │
+│           ├── index.jsp
+│           ├── login.jsp
+│           ├── register.jsp
+│           ├── books.jsp
+│           ├── cart.jsp
+│           └── admin.jsp
+│
+├── bookstore_db.sql
+├── pom.xml
+└── README.md
+```
 
 ---
 
-##**🔧 Installation & Setup**
-Clone the Project:
+## 🔧 Installation & Setup
 
-Bash
-git clone [https://github.com/Sanjana-AI-24/OnlineBookStore.git](https://github.com/Sanjana-AI-24/OnlineBookStore.git)
-Database Configuration:
+Follow these steps to run the project on your local machine.
 
-Import bookstore_db.sql into your MySQL Workbench or Shell.
+### 1. Prerequisites
 
-Update your MySQL credentials in src/main/java/com/bookstore/util/DBConnection.java or hibernate.cfg.xml.
+- JDK 8 or higher
+- Apache Tomcat 9.0+
+- MySQL Server
+- IDE (Eclipse / IntelliJ IDEA / VS Code)
 
-Deployment:
+---
 
-Import the project into your IDE (Eclipse/IntelliJ).
+### 2. Database Setup
 
-Configure Apache Tomcat as the deployment server.
+Create the database:
 
-Run the project on the server and access http://localhost:8080/OnlineBookStore.
+```sql
+CREATE DATABASE bookstore_db;
+```
 
-👩‍💻 Author
-G. Sanjana Artificial Intelligence & Data Science Student
+Import the SQL file:
+
+```bash
+mysql -u root -p bookstore_db < bookstore_db.sql
+```
+
+---
+
+### 3. Configure Database Connection
+
+Update your MySQL credentials in:
+
+```text
+src/main/java/com/bookstore/util/DBConnection.java
+```
+
+```java
+private static final String URL = "jdbc:mysql://localhost:3306/bookstore_db";
+private static final String USER = "YOUR_MYSQL_USERNAME";
+private static final String PASS = "YOUR_MYSQL_PASSWORD";
+```
+
+---
+
+### 4. Run the Application
+
+1. Import the project into your IDE
+2. Add MySQL Connector and Servlet API dependencies
+3. Run the project on Apache Tomcat Server
+
+Open in browser:
+
+```text
+http://localhost:8080/OnlineBookStore
+```
