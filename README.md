@@ -55,3 +55,27 @@ OnlineBookStore/
 │   └── *.jsp                     # Dynamic View Pages (index, books, cart, etc.)
 ├── bookstore_db.sql              # Database Schema & Sample Data
 └── README.md                     # Project Documentation
+
+---
+
+##**🔧 Installation & Setup**
+Clone the Project:
+
+Bash
+git clone [https://github.com/Sanjana-AI-24/OnlineBookStore.git](https://github.com/Sanjana-AI-24/OnlineBookStore.git)
+Database Configuration:
+
+Import bookstore_db.sql into your MySQL Workbench or Shell.
+
+Update your MySQL credentials in src/main/java/com/bookstore/util/DBConnection.java or hibernate.cfg.xml.
+
+Deployment:
+
+Import the project into your IDE (Eclipse/IntelliJ).
+
+Configure Apache Tomcat as the deployment server.
+
+Run the project on the server and access http://localhost:8080/OnlineBookStore.
+
+👩‍💻 Author
+G. Sanjana Artificial Intelligence & Data Science Student
