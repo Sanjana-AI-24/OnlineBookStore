@@ -1,0 +1,11 @@
+# Ignore IDE files
+.settings/
+.project
+.classpath
+target/
+bin/
+.idea/
+*.iml
+
+# Ignore local server files
+.tomcat/
